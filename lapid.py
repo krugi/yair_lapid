@@ -5,6 +5,7 @@ DICTIONARY_SITE = "http://svnweb.freebsd.org/csrg/share/dict/words?view=co&conte
 
 class YairLapid(object):
     _BIRTH_DATE = dt.date(1963, 11, 5)
+    _IS_MOST_ISRAELI = True
 
     def __init__(self):
         super(YairLapid, self).__init__()
@@ -17,6 +18,10 @@ class YairLapid(object):
         response = urllib2.urlopen(DICTIONARY_SITE)
         txt = response.read()
         return txt.splitlines()
+    
+    @property
+    def is_most_israeli(self):
+        return self._IS_MOST_ISRAELI
 
     @property
     def birthdate(self):
